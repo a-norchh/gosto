@@ -13,6 +13,10 @@ const Header = () => {
     setMenuToggle((prev) => !prev);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   const stickyActive = () => {
     if (window.scrollY > 0) {
       setStickyMenu(true);
@@ -36,12 +40,16 @@ const Header = () => {
                 />
               </div>
               <div className="logo">
-                <img src={logo} alt="Gosto logo" />
+                <NavLink to="/" onClick={scrollToTop}>
+                  <img src={logo} alt="Gosto logo" />
+                </NavLink>
               </div>
               <ul className="menu-list">
                 {navlist.map((item) => (
                   <li key={item.text}>
-                    <NavLink to={item.path}>{item.text}</NavLink>
+                    <NavLink to={item.path} onClick={scrollToTop}>
+                      {item.text}
+                    </NavLink>
                   </li>
                 ))}
               </ul>

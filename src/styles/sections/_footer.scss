@@ -1,2 +1,19 @@
-#footer {
+footer {
+  text-align: center;
+  padding: 1.5rem 0;
+  background-color: #312620;
+  .footer__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+  a {
+    color: var(--white-color);
+  }
+  .icon {
+    font-size: 30px;
+    display: block;
+  }
 }

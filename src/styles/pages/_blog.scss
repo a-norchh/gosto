@@ -1,0 +1,15 @@
+#blog-page {
+  height: 100vh;
+  padding-bottom: 4rem;
+  background: url("../../assets/images/bg-dot.png");
+  background-size: contain;
+  background-position: top center;
+  background-repeat: no-repeat;
+
+  @include small-screen {
+    height: auto;
+  }
+  .section__heading {
+    text-align: center;
+  }
+}

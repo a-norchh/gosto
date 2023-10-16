@@ -10,10 +10,6 @@ export const navlist = [
     text: "blog",
     path: "/blog",
   },
-  {
-    text: "contact us",
-    path: "/contact",
-  },
 ];
 
 export const products = [

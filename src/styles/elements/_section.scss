@@ -14,7 +14,10 @@
 }
 
 .heading__padding {
-  padding-top: 10%;
+  padding-top: 8%;
+  @include medium-screen {
+    padding-top: 14%;
+  }
   @include small-screen {
     padding-top: 20%;
   }

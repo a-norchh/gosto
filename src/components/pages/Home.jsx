@@ -1,12 +1,16 @@
 import React from "react";
-import { Hero, Product, Banner } from "../sections";
+import { Hero, Product, Banner, Blog, Footer } from "../sections";
 
 const Home = () => {
   return (
     <>
-      <Hero />
-      <Banner />
-      <Product />
+      <div id="home-page">
+        <Hero />
+        <Banner />
+        <Product />
+        <Blog />
+        <Footer />
+      </div>
     </>
   );
 };
