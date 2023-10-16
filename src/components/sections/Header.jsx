@@ -1,20 +1,35 @@
-import React, { useState } from "react";
-import logo from "../assets/images/logo.svg";
-import { navlist } from "../assets/data/data";
+import React, { useState, useEffect } from "react";
+import logo from "../../assets/images/logo.svg";
+import { navlist } from "../../assets/data/data";
 import { NavLink } from "react-router-dom";
 import { FiShoppingBag, FiMenu } from "react-icons/fi";
 import { AiFillCloseSquare } from "react-icons/ai";
 
 const Header = () => {
   const [menuToggle, setMenuToggle] = useState(false);
+  const [stickyMenu, setStickyMenu] = useState(false);
 
   const toggleMenuHandler = () => {
     setMenuToggle((prev) => !prev);
   };
 
+  const stickyActive = () => {
+    if (window.scrollY > 0) {
+      setStickyMenu(true);
+    } else {
+      setStickyMenu(false);
+    }
+  };
+
+  // useEffect(() => {
+  //   stickyActive();
+  // }, []);
+
+  window.addEventListener("scroll", stickyActive);
+
   return (
     <>
-      <header id="header">
+      <header id="header" className={`${stickyMenu ? "sticky" : ""}`}>
         <div className="container">
           <nav className="navbar">
             <div className="navbar__left">

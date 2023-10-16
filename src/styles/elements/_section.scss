@@ -1,0 +1,26 @@
+.section {
+  &__heading {
+    padding-bottom: 4rem;
+  }
+  &__title {
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+  }
+  &__padding {
+    padding: 5rem 0 4rem;
+    text-align: center;
+  }
+}
+
+.heading__padding {
+  padding-top: 10%;
+  @include small-screen {
+    padding-top: 20%;
+  }
+  @include mobile-screen {
+    padding-top: 32%;
+  }
+}
+
+// padding-top: 10%;

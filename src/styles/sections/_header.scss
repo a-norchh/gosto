@@ -1,7 +1,15 @@
 #header {
-  position: relative;
+  position: fixed;
+  width: 100%;
   box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.05);
   padding: 15px 0;
+  top: 0;
+  z-index: 9;
+  transition: all 0.3s;
+
+  &.sticky {
+    background-color: rgba(#fff, 0.9);
+  }
 
   .navbar {
     display: flex;
@@ -64,7 +72,7 @@
       position: absolute;
       top: 0;
       left: 0;
-
+      z-index: 9;
       @include tablet-screen {
         display: block;
       }

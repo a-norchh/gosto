@@ -1,7 +1,13 @@
 import React from "react";
+import { Hero, Product } from "../sections";
 
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <>
+      <Hero />
+      <Product />
+    </>
+  );
 };
 
 export default Home;
