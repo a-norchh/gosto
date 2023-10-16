@@ -1,10 +1,11 @@
 import React from "react";
-import { Hero, Product } from "../sections";
+import { Hero, Product, Banner } from "../sections";
 
 const Home = () => {
   return (
     <>
       <Hero />
+      <Banner />
       <Product />
     </>
   );

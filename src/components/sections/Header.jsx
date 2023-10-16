@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import logo from "../../assets/images/logo.svg";
 import { navlist } from "../../assets/data/data";
 import { NavLink } from "react-router-dom";
@@ -20,10 +20,6 @@ const Header = () => {
       setStickyMenu(false);
     }
   };
-
-  // useEffect(() => {
-  //   stickyActive();
-  // }, []);
 
   window.addEventListener("scroll", stickyActive);
 

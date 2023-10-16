@@ -16,39 +16,6 @@ export const navlist = [
   },
 ];
 
-export const hero = [
-  {
-    id: 1,
-    cover: "../images/hero/cate-h11_1.png",
-    name: "Web Themes",
-    items: "5",
-  },
-  {
-    id: 2,
-    cover: "../images/hero/cate-h11_2.png",
-    name: "UI Design",
-    items: "12",
-  },
-  {
-    id: 3,
-    cover: "../images/hero/cate-h11_3.png",
-    name: "3D Models",
-    items: "12",
-  },
-  {
-    id: 4,
-    cover: "../images/hero/cate-h11_5.png",
-    name: "Image Stock",
-    items: "15",
-  },
-  {
-    id: 5,
-    cover: "../images/hero/cate-h11.png",
-    name: "Mockup Design",
-    items: "7",
-  },
-];
-
 export const products = [
   {
     id: 1,
@@ -123,6 +90,7 @@ export const products = [
     qty: 0,
   },
 ];
+
 export const banner = [
   {
     id: 1,
@@ -139,6 +107,7 @@ export const banner = [
     cover: "../images/banner/b1.png",
   },
 ];
+
 export const topProducts = [
   {
     id: 20,

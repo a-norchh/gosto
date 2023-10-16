@@ -1,0 +1,49 @@
+.banner {
+  background-color: var(--white-color);
+  &.section__padding {
+    @include mobile-screen {
+      padding: 5rem 0 0rem;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    @include medium-screen {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    &__item {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      margin: 0 auto;
+      border-radius: 12px;
+      img {
+        transition: all 0.3s;
+      }
+      &:hover {
+        img {
+          transform: scale(1.1);
+        }
+      }
+    }
+    &__details {
+      position: absolute;
+      text-align: left;
+      padding: 30px;
+      left: 0;
+      top: 0;
+      color: var(--white-color);
+      p {
+        margin: 1rem auto 3rem;
+        color: var(--white-color);
+      }
+      .btn {
+        @include mobile-screen {
+          display: none;
+        }
+      }
+    }
+  }
+}
