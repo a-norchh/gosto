@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { FiSearch } from "react-icons/fi";
+import SearchItems from "./SearchItems";
 
 const Hero = () => {
+  const [searchProduct, setSearchProduct] = useState("");
+  const onChangeHandler = (event) => {
+    setSearchProduct(event.target.value);
+  };
+
   return (
     <>
       <section id="hero" className="heading__padding">
-        <div className="container">
+        <div className="container container--hero">
           <h1>
             Over<span className="text-primary-color"> 6,500 </span>Curated
             Design Resources,
@@ -19,14 +25,20 @@ const Hero = () => {
           <div className="search-contain">
             <div className="search-title">All Categories</div>
             <hr />
-            <input type="text" placeholder="Search Products..." />
+            <input
+              type="text"
+              placeholder="Search Products..."
+              onChange={onChangeHandler}
+            />
             <FiSearch className="search-icon" />
           </div>
-          {/* Products Search */}
           <p className="example-text">
             Examples: Mockup, PSD, Theme Design, Image…
           </p>
         </div>
+
+        {/* Products Search */}
+        {searchProduct ? <SearchItems search={searchProduct} /> : ""}
       </section>
     </>
   );

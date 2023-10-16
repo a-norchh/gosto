@@ -1,7 +1,6 @@
 #hero {
   text-align: center;
   margin: 0 auto;
-
   padding-bottom: 5rem;
   background: url("../../assets/images/bg-dot.png");
   background-size: contain;
@@ -14,7 +13,7 @@
     padding-top: 32%;
   }
 
-  .container {
+  .container--hero {
     width: 60%;
     @include small-screen {
       width: 80%;
