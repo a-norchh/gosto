@@ -9,8 +9,23 @@
     gap: 30px;
     justify-content: center;
     margin-bottom: 4rem;
+    @include small-screen {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+
+      .btn {
+        min-width: auto;
+      }
+    }
+    @include mobile-screen {
+      gap: 10px;
+    }
   }
   .products-contain {
     min-height: 393px;
+    @include small-screen {
+      min-height: 335px;
+    }
   }
 }
