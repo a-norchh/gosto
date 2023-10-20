@@ -1,5 +1,5 @@
 import React from "react";
-import { Hero, Product, Banner, Blog, Footer } from "../sections";
+import { Hero, Product, Banner, Blog, Footer, TopSelling } from "../sections";
 
 const Home = () => {
   return (
@@ -8,6 +8,7 @@ const Home = () => {
         <Hero />
         <Banner />
         <Product />
+        <TopSelling />
         <Blog />
         <Footer />
       </div>

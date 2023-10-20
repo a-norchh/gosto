@@ -1,0 +1,16 @@
+.topselling-section {
+  background-color: var(--white-color);
+  .section__heading {
+    padding-bottom: 30px;
+  }
+  .filter-contain {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 4rem;
+  }
+  .products-contain {
+    min-height: 393px;
+  }
+}

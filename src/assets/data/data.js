@@ -106,7 +106,7 @@ export const banner = [
 
 export const topProducts = [
   {
-    id: 20,
+    id: 7,
     cover: "../images/product/7-1-1.jpg",
     title: "Web Dark Theme (PSD)",
     author: "by Blueskytechco in Mockups",
@@ -115,7 +115,7 @@ export const topProducts = [
     qty: 0,
   },
   {
-    id: 21,
+    id: 8,
     cover: "../images/product/8-1.jpg",
     title: "Icons Design (PSD)",
     author: "by Blueskytechco in Mockups",
@@ -124,7 +124,7 @@ export const topProducts = [
     qty: 0,
   },
   {
-    id: 22,
+    id: 6,
     cover: "../images/product/6-3.jpg",
     title: "Web Light Theme (PSD)",
     author: "by Blueskytechco in Mockups",
@@ -134,7 +134,7 @@ export const topProducts = [
   },
 
   {
-    id: 23,
+    id: 5,
     cover: "../images/product/5-1-1.jpg",
     title: "Dark iPhone X Mockups (PSD)",
     author: "by Blueskytechco in Mockups",
@@ -143,7 +143,7 @@ export const topProducts = [
     qty: 0,
   },
   {
-    id: 24,
+    id: 4,
     cover: "../images/product/4-3.jpg",
     title: "Room 3D (PSD)",
     author: "by Blueskytechco in Mockups",
@@ -152,7 +152,7 @@ export const topProducts = [
     qty: 0,
   },
   {
-    id: 25,
+    id: 3,
     cover: "../images/product/3-1-1.jpg",
     title: "Business Card Mockups (PSD)",
     author: "by Blueskytechco in Mockups",
@@ -161,7 +161,7 @@ export const topProducts = [
     qty: 0,
   },
   {
-    id: 26,
+    id: 1,
     cover: "../images/product/1-1-1.jpg",
     title: "Moon Light iPhone X Mockups (PSD)",
     author: "by Blueskytechco in Mockups",
@@ -170,7 +170,7 @@ export const topProducts = [
     qty: 0,
   },
   {
-    id: 27,
+    id: 2,
     cover: "../images/product/2-1-1.jpg",
     title: "Ticket Mockups (PSD)",
     author: "by Blueskytechco in Mockups",
