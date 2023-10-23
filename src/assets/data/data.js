@@ -1,6 +1,3 @@
-import { FcCheckmark } from "react-icons/fc";
-import { AiOutlineClose } from "react-icons/ai";
-
 export const navlist = [
   {
     text: "home",

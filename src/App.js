@@ -4,7 +4,7 @@ import { store } from "./controllers/store";
 import { Provider } from "react-redux";
 
 import { Header } from "./components/sections";
-import { Home, Blog } from "./components/pages";
+import { Home, Blog, Product } from "./components/pages";
 
 const App = () => {
   return (
@@ -15,6 +15,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/product/:prodId" element={<Product />} />
           </Routes>
         </Router>
       </Provider>

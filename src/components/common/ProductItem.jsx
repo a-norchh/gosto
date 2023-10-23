@@ -3,11 +3,11 @@ import { FiShoppingBag } from "react-icons/fi";
 import { useDispatch } from "react-redux";
 import { addCart } from "../../controllers/cartSlice";
 import { Modal } from "../common";
+import { Link } from "react-router-dom";
 
 const ProductItem = ({ data }) => {
   const dispatch = useDispatch();
   const [modalActive, setModalActive] = useState(false);
-  let allBtn = document.querySelector(".btn-add");
 
   const addCartHandler = (item) => {
     setModalActive(true);
@@ -22,7 +22,9 @@ const ProductItem = ({ data }) => {
       {data.map((item) => (
         <div key={item.id} className="product">
           <div className="product__img">
-            <img src={item.cover} alt="" />
+            <Link to={`/product/${item.id}`}>
+              <img src={item.cover} alt="" />
+            </Link>
             <button
               className="btn-add"
               onClick={() => {

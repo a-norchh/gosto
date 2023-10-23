@@ -70,7 +70,7 @@
     &__small {
       display: none;
       position: absolute;
-      top: 0;
+      top: -15px;
       left: 0;
       z-index: 9;
       @include tablet-screen {
