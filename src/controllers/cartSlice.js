@@ -32,19 +32,28 @@ export const cartSlice = createSlice({
         };
       }
     },
-    // DECRESE FROM CART
 
-    // REMOVE ALL FROM CART
     removeCart: (state, action) => {
       const itemIndex = state.carts.findIndex(
-        (item) => item.id === action.payload
+        (item) => item.id === action.payload.id
       );
-      const items = state.carts.filter((item) => item.id !== action.payload);
-      return {
-        ...state,
-        carts: [...items],
-        totalPrice: state.totalPrice - state.carts[itemIndex].prodTotalPrice,
-      };
+      // REMOVE ALL FROM CART
+      if (action.payload.clear || state.carts[itemIndex].qty === 1) {
+        const items = state.carts.filter(
+          (item) => item.id !== action.payload.id
+        );
+        return {
+          ...state,
+          carts: [...items],
+          totalPrice: state.totalPrice - state.carts[itemIndex].prodTotalPrice,
+        };
+      }
+      // DECRESE FROM CART
+      else {
+        state.carts[itemIndex].qty -= 1;
+        state.carts[itemIndex].prodTotalPrice -= state.carts[itemIndex].price;
+        state.totalPrice = state.totalPrice - action.payload.price;
+      }
     },
   },
 });

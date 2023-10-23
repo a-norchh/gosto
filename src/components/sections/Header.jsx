@@ -6,7 +6,7 @@ import { FiShoppingBag, FiMenu } from "react-icons/fi";
 import { RiDeleteBin2Line } from "react-icons/ri";
 import { AiFillCloseSquare } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";
-import { removeCart } from "../../controllers/cartSlice";
+import { removeCart, addCart } from "../../controllers/cartSlice";
 
 const Header = () => {
   const [menuToggle, setMenuToggle] = useState(false);
@@ -33,8 +33,14 @@ const Header = () => {
 
   window.addEventListener("scroll", stickyActive);
 
-  const removeProdHandler = (id) => {
-    dispatch(removeCart(id));
+  const addProdHandler = (item) => {
+    dispatch(addCart(item));
+  };
+  const decreaseProdHandler = (item) => {
+    dispatch(removeCart({ ...item, clear: false }));
+  };
+  const removeProdHandler = (item) => {
+    dispatch(removeCart({ ...item, clear: true }));
   };
 
   const cartData = useSelector((state) => state.cart.carts);
@@ -68,11 +74,26 @@ const Header = () => {
                   {item.title.length >= 15 && " . . ."}
                 </div>
                 <div>price : ${item.prodTotalPrice}</div>
-                <div>quantity : {item.qty}</div>
+                <div className="qty-controller">
+                  quantity :{" "}
+                  <span
+                    className="decrease-qty btn-qty"
+                    onClick={() => decreaseProdHandler(item)}
+                  >
+                    -
+                  </span>
+                  <span className="qty">{item.qty}</span>
+                  <span
+                    className="decrease-qty btn-qty"
+                    onClick={() => addProdHandler(item)}
+                  >
+                    +
+                  </span>
+                </div>
               </li>
               <li
                 className="remove-btn"
-                onClick={() => removeProdHandler(item.id)}
+                onClick={() => removeProdHandler(item)}
               >
                 <RiDeleteBin2Line />
               </li>
