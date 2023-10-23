@@ -1,0 +1,21 @@
+.modal-contain {
+  position: fixed;
+  z-index: 9;
+  width: 350px;
+  // height: 500px;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 4rem;
+  .modal-icon {
+    color: var(--primary-color);
+    font-size: 80px;
+    line-height: 0;
+  }
+  .modal-text {
+    color: var(--white-color);
+  }
+}

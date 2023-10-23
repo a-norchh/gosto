@@ -3,11 +3,17 @@ import logo from "../../assets/images/logo.svg";
 import { navlist } from "../../assets/data/data";
 import { NavLink } from "react-router-dom";
 import { FiShoppingBag, FiMenu } from "react-icons/fi";
+import { RiDeleteBin2Line } from "react-icons/ri";
 import { AiFillCloseSquare } from "react-icons/ai";
+import { useSelector, useDispatch } from "react-redux";
+import { removeCart } from "../../controllers/cartSlice";
 
 const Header = () => {
   const [menuToggle, setMenuToggle] = useState(false);
   const [stickyMenu, setStickyMenu] = useState(false);
+  const [cartActive, setCartActive] = useState(false);
+
+  const dispatch = useDispatch();
 
   const toggleMenuHandler = () => {
     setMenuToggle((prev) => !prev);
@@ -26,6 +32,61 @@ const Header = () => {
   };
 
   window.addEventListener("scroll", stickyActive);
+
+  const removeProdHandler = (id) => {
+    dispatch(removeCart(id));
+  };
+
+  const cartData = useSelector((state) => state.cart.carts);
+  const totalPrice = useSelector((state) => state.cart.totalPrice);
+
+  let cartContent = (
+    <div className="empty-cart">
+      <div className="cart-icon">
+        <FiShoppingBag />
+      </div>
+      <div>Your cart is empty</div>
+    </div>
+  );
+
+  if (cartData.length !== 0) {
+    cartContent = (
+      <div className="prods-cart">
+        <div className="cart-header">
+          <div>Product</div>
+          <div>Details</div>
+        </div>
+        <div className="prod-list">
+          {cartData.map((item) => (
+            <ul key={item.id} className="prod-details">
+              <li>
+                <img src={item.cover} alt="product" />
+              </li>
+              <li>
+                <div className="prod-title">
+                  {item.title.slice(0, 15)}
+                  {item.title.length >= 15 && " . . ."}
+                </div>
+                <div>price : ${item.prodTotalPrice}</div>
+                <div>quantity : {item.qty}</div>
+              </li>
+              <li
+                className="remove-btn"
+                onClick={() => removeProdHandler(item.id)}
+              >
+                <RiDeleteBin2Line />
+              </li>
+            </ul>
+          ))}
+        </div>
+        <div className="cart-footer">
+          <div className="total-prices">
+            Total Prices : <span>${totalPrice}</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -55,10 +116,13 @@ const Header = () => {
               </ul>
             </div>
             <div className="navbar__right">
-              <button className="btn btn-cart">
+              <button
+                className="btn btn-cart"
+                onClick={() => setCartActive(!cartActive)}
+              >
                 <FiShoppingBag className="icon" />
                 <div>MY CART</div>
-                <div className="num-cart">0</div>
+                <div className="num-cart">{cartData.length}</div>
               </button>
             </div>
             <div className={`navbar__small ${menuToggle ? "active" : ""}`}>
@@ -85,6 +149,9 @@ const Header = () => {
               </div>
             </div>
           </nav>
+          <div className={`cart-contain ${cartActive ? "active" : ""}`}>
+            <div className="cart__inner">{cartContent}</div>
+          </div>
         </div>
       </header>
     </>

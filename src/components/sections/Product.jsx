@@ -3,7 +3,7 @@ import { ProductItem } from "../common";
 import { products } from "../../assets/data/data";
 
 const Product = () => {
-  console.log({ products });
+  // console.log({ products });
   return (
     <section className="product-section section__padding">
       <div className="container">

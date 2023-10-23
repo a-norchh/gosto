@@ -36,8 +36,9 @@
         }
 
         @include mobile-screen {
-          width: 70%;
+          display: none;
         }
+
         .add-text {
           font-size: 15px;
           margin-left: 5px;
