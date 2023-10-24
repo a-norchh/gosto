@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { products } from "../../assets/data/data";
 import { Footer } from "../sections/";
 import { useDispatch } from "react-redux";
@@ -8,9 +8,14 @@ import { Modal } from "../common";
 
 const Product = () => {
   const params = parseInt(useParams().prodId);
+  const navigate = useNavigate();
   const checkProd = products.filter((item) => item.id === params);
   const prodSelected = checkProd[0];
   const [modalActive, setModalActive] = useState(false);
+
+  const refreshPage = () => {
+    navigate(0);
+  };
 
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
@@ -33,6 +38,10 @@ const Product = () => {
       setModalActive(false);
     }, 1000);
   };
+
+  useEffect(() => {
+    setQty(1);
+  }, [params]);
 
   return (
     <>

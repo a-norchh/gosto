@@ -7,6 +7,7 @@ import { RiDeleteBin2Line } from "react-icons/ri";
 import { AiFillCloseSquare } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";
 import { removeCart, addCart } from "../../controllers/cartSlice";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [menuToggle, setMenuToggle] = useState(false);
@@ -66,7 +67,9 @@ const Header = () => {
           {cartData.map((item) => (
             <ul key={item.id} className="prod-details">
               <li>
-                <img src={item.cover} alt="product" />
+                <Link to={`/product/${item.id}`}>
+                  <img src={item.cover} alt="product" />
+                </Link>
               </li>
               <li>
                 <div className="prod-title">
