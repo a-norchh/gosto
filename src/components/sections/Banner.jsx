@@ -1,5 +1,6 @@
 import React from "react";
 import { banner } from "../../assets/data/data";
+import { motion } from "framer-motion";
 
 const Banner = () => {
   return (
