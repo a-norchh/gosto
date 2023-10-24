@@ -15,20 +15,28 @@ export const cartSlice = createSlice({
         (item) => item.id === action.payload.id
       );
       if (itemIndex >= 0) {
-        state.carts[itemIndex].qty += 1;
+        if (action.payload.addQuantity) {
+          state.carts[itemIndex].qty += action.payload.qty;
+          state.totalPrice =
+            state.totalPrice + action.payload.price * action.payload.qty;
+        } else {
+          state.carts[itemIndex].qty += 1;
+          state.totalPrice = state.totalPrice + action.payload.price;
+        }
         state.carts[itemIndex].prodTotalPrice =
-          state.carts[itemIndex].qty * state.carts[itemIndex].price;
-        state.totalPrice = state.totalPrice + action.payload.price;
+          state.carts[itemIndex].qty * action.payload.price;
       } else {
         const tempItem = {
           ...action.payload,
-          qty: 1,
-          prodTotalPrice: action.payload.price,
+          qty: action.payload.qty,
+          prodTotalPrice: action.payload.price * action.payload.qty,
         };
+
         return {
           ...state,
           carts: [...state.carts, tempItem],
-          totalPrice: state.totalPrice + action.payload.price,
+          totalPrice:
+            state.totalPrice + action.payload.price * action.payload.qty,
         };
       }
     },

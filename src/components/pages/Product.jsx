@@ -1,12 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { products } from "../../assets/data/data";
 import { Footer } from "../sections/";
+import { useDispatch } from "react-redux";
+import { addCart } from "../../controllers/cartSlice";
+import { Modal } from "../common";
 
 const Product = () => {
   const params = parseInt(useParams().prodId);
   const checkProd = products.filter((item) => item.id === params);
   const prodSelected = checkProd[0];
+  const [modalActive, setModalActive] = useState(false);
+
+  const [qty, setQty] = useState(1);
+  const dispatch = useDispatch();
+
+  const increaseQty = () => {
+    setQty(qty + 1);
+  };
+
+  const decreaseQty = () => {
+    if (qty > 1) {
+      setQty(qty - 1);
+    }
+  };
+
+  const addCartHandler = (item) => {
+    setModalActive(true);
+    const temp = { ...item, qty: qty };
+    dispatch(addCart({ ...temp, addQuantity: true }));
+    setTimeout(function () {
+      setModalActive(false);
+    }, 1000);
+  };
 
   return (
     <>
@@ -25,11 +51,21 @@ const Product = () => {
               <div className="prod-author">{prodSelected.author}</div>
               {/* ADD  */}
               <div className="prod-qty">
-                <div className="btn-qty">-</div>
-                <div className="qty">1</div>
-                <div className="btn-qty">+</div>
-                <button className="btn-add">ADD TO CART</button>
+                <div className="btn-qty" onClick={decreaseQty}>
+                  -
+                </div>
+                <div className="qty">{qty}</div>
+                <div className="btn-qty" onClick={increaseQty}>
+                  +
+                </div>
+                <button
+                  className="btn-add"
+                  onClick={() => addCartHandler(prodSelected)}
+                >
+                  ADD TO CART
+                </button>
               </div>
+              {/* END ADD */}
               <div className="prod-desc">
                 <h4>PRODUCTS DESCRIPTION</h4>
                 <p>
@@ -67,6 +103,7 @@ const Product = () => {
         </div>
         <Footer />
       </div>
+      {modalActive && <Modal />}
     </>
   );
 };

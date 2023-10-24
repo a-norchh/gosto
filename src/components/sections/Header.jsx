@@ -34,7 +34,7 @@ const Header = () => {
   window.addEventListener("scroll", stickyActive);
 
   const addProdHandler = (item) => {
-    dispatch(addCart(item));
+    dispatch(addCart({ ...item, addQuantity: false }));
   };
   const decreaseProdHandler = (item) => {
     dispatch(removeCart({ ...item, clear: false }));

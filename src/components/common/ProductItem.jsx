@@ -11,7 +11,7 @@ const ProductItem = ({ data }) => {
 
   const addCartHandler = (item) => {
     setModalActive(true);
-    dispatch(addCart(item));
+    dispatch(addCart({ ...item, qty: 1 }));
     setTimeout(function () {
       setModalActive(false);
     }, 1000);

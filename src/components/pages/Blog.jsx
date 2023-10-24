@@ -14,8 +14,8 @@ const Blog = () => {
           </div>
           <BlogItem data={blog} />
         </div>
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 };

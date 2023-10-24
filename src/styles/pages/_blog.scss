@@ -1,6 +1,7 @@
 #blog-page {
+  display: grid;
+  grid-template-rows: 1fr auto;
   height: 100vh;
-  padding-bottom: 4rem;
   background: url("../../assets/images/bg-dot.png");
   background-size: contain;
   background-position: top center;
